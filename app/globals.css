@@ -1,0 +1,217 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #050505;
+  --foreground: #f8fafc;
+  --card: #0a0a0a;
+  --card-foreground: #f8fafc;
+  --popover: #0a0a0a;
+  --popover-foreground: #f8fafc;
+  --primary: #10B981;
+  --primary-foreground: #050505;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #f8fafc;
+  --muted: #1a1a1a;
+  --muted-foreground: #71717a;
+  --accent: #10B981;
+  --accent-foreground: #050505;
+  --destructive: #ef4444;
+  --destructive-foreground: #fef2f2;
+  --border: #334155;
+  --input: #1a1a1a;
+  --ring: #10B981;
+  --chart-1: #10B981;
+  --chart-2: #334155;
+  --chart-3: #22c55e;
+  --chart-4: #14b8a6;
+  --chart-5: #06b6d4;
+  --radius: 0.5rem;
+  --sidebar: #0a0a0a;
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #10B981;
+  --sidebar-primary-foreground: #050505;
+  --sidebar-accent: #1a1a1a;
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-border: #334155;
+  --sidebar-ring: #10B981;
+  
+  /* Custom PlantVision colors */
+  --emerald: #10B981;
+  --slate-border: #334155;
+  --obsidian: #050505;
+  --warning: #f59e0b;
+  --success: #22c55e;
+}
+
+.dark {
+  --background: #050505;
+  --foreground: #f8fafc;
+  --card: #0a0a0a;
+  --card-foreground: #f8fafc;
+  --popover: #0a0a0a;
+  --popover-foreground: #f8fafc;
+  --primary: #10B981;
+  --primary-foreground: #050505;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #f8fafc;
+  --muted: #1a1a1a;
+  --muted-foreground: #71717a;
+  --accent: #10B981;
+  --accent-foreground: #050505;
+  --destructive: #ef4444;
+  --destructive-foreground: #fef2f2;
+  --border: #334155;
+  --input: #1a1a1a;
+  --ring: #10B981;
+  --chart-1: #10B981;
+  --chart-2: #334155;
+  --chart-3: #22c55e;
+  --chart-4: #14b8a6;
+  --chart-5: #06b6d4;
+  --sidebar: #0a0a0a;
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #10B981;
+  --sidebar-primary-foreground: #050505;
+  --sidebar-accent: #1a1a1a;
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-border: #334155;
+  --sidebar-ring: #10B981;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans), 'Geist', 'Geist Fallback';
+  --font-mono: var(--font-geist-mono), 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Print styles for PDF export - Optimized for 16:9 landscape */
+@media print {
+  html, body {
+    background: #050505 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    overflow: visible !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  main {
+    overflow: visible !important;
+    height: auto !important;
+    scroll-snap-type: none !important;
+  }
+  
+  section {
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    width: 100vw !important;
+    break-after: page !important;
+    page-break-after: always !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    overflow: hidden !important;
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+  
+  section:last-of-type {
+    break-after: auto !important;
+    page-break-after: auto !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  /* Hide scrollbars */
+  ::-webkit-scrollbar {
+    display: none !important;
+  }
+  
+  /* Ensure backgrounds print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  
+  /* Preserve backdrop blur and glassmorphism effects */
+  .backdrop-blur-xl,
+  .backdrop-blur-sm,
+  .backdrop-blur-md {
+    backdrop-filter: none !important;
+    background-color: rgba(10, 10, 10, 0.9) !important;
+  }
+  
+  /* Ensure images print properly */
+  img {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  /* Remove animations for print */
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  @page {
+    size: 297mm 167mm; /* 16:9 aspect ratio */
+    margin: 0;
+  }
+}
